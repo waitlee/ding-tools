@@ -7,10 +7,10 @@
         "name": "waitlee",
         "email": "liduabc2012@gmail.com"
     }],
-    "require": {},
-    "require-dev": {
-        "net/http": "1.1.0"
+    "require": {
+        "guzzlehttp/guzzle": "~6.0@dev"
     },
+    "require-dev": {},
     "autoload": {
         "psr-4": {
             "WaitLee\\DingTools\\": "src/"

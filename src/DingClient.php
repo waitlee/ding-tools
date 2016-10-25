@@ -7,5 +7,5 @@ namespace WaitLee\DingTools;
 
 class DingClient
 {
-
+    
 }
