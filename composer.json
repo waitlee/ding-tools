@@ -1,0 +1,16 @@
+{
+    "name": "waitlee/ding-tools",
+    "description": "ding ding tools for laravel 5.3",
+    "type": "library",
+    "license": "MIT",
+    "authors": [{
+        "name": "waitlee",
+        "email": "liduabc@163.com"
+    }],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "WaitLee\\DingTools\\": "src/"
+        }
+    }
+}
