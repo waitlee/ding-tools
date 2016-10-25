@@ -5,9 +5,12 @@
     "license": "MIT",
     "authors": [{
         "name": "waitlee",
-        "email": "liduabc@163.com"
+        "email": "liduabc2012@gmail.com"
     }],
     "require": {},
+    "require-dev": {
+        "net/http": "1.1.0"
+    },
     "autoload": {
         "psr-4": {
             "WaitLee\\DingTools\\": "src/"
