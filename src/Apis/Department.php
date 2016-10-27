@@ -20,7 +20,7 @@ class Department
      *
      * @return string              json format string
      */
-    public static function Departmentlist($accessToken)
+    public static function departmentList($accessToken)
     {
         $res = DingClient::getInstance()->get('department/list', ['access_token' => $accessToken]);
 

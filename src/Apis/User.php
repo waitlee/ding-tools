@@ -16,7 +16,7 @@ class User
      * @param  array   $args         请求参数，例如：order、size、offset
      * @return [type]               [description]
      */
-    public static function Userlist($accessToken, $departmentId, $args = [])
+    public static function userList($accessToken, $departmentId, $args = [])
     {
         $queryArgs = [
             'access_token' => $accessToken,
