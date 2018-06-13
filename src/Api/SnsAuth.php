@@ -1,6 +1,7 @@
 <?php
 /**
  * Created by SnsAuth.php
+ * 钉钉 SNS AUTH 接口
  *
  * PHP Version 7.0
  *
@@ -15,7 +16,7 @@ use WaitLee\DingTools\DingClient;
 class SnsAuth
 {
     /**
-     * get Access Token
+     * get SNS Access Token
      *
      * @param string $corpId
      * @param string $corpSecret
@@ -24,7 +25,7 @@ class SnsAuth
      */
     public static function getAccessToken($corpId, $corpSecret)
     {
-        $response = DingClient::getInstance()->get('sns/gettoken', ['corpid' => $corpId, 'corpsecret' => $corpSecret]);
+        $response = DingClient::getInstance()->get('sns/gettoken', ['appid' => $corpId, 'appsecret' => $corpSecret]);
 
         return $response->getBody()->getContents();
     }
@@ -39,7 +40,11 @@ class SnsAuth
      */
     public static function getPersistentCode($code, $accessToken)
     {
-        $response = DingClient::getInstance()->post('sns/get_persistent_code', ['access_token' => $accessToken], ['tmp_auth_code' => $code]);
+        $response = DingClient::getInstance()->post(
+            'sns/get_persistent_code',
+            ['access_token' => $accessToken],
+            ['tmp_auth_code' => $code]
+        );
 
         return $response->getBody()->getContents();
     }
@@ -55,7 +60,11 @@ class SnsAuth
      */
     public static function getSnsToken($code, $openId, $accessToken)
     {
-        $response = DingClient::getInstance()->post('sns/get_sns_token', ['access_token' => $accessToken], ['openid' => $openId, 'persistent_code' => $code]);
+        $response = DingClient::getInstance()->post(
+            'sns/get_sns_token',
+            ['access_token' => $accessToken],
+            ['openid' => $openId, 'persistent_code' => $code]
+        );
 
         return $response->getBody()->getContents();
     }
@@ -67,14 +76,8 @@ class SnsAuth
      */
     public static function getSnsInfo($snsToken)
     {
-        $response = DingClient::getInstance()->post('sns/getuserinfo', ['sns_token' => $snsToken]);
+        $response = DingClient::getInstance()->get('sns/getuserinfo', ['sns_token' => $snsToken]);
 
         return $response->getBody()->getContents();
-    }
-
-
-    public static function getTicket($accessToken)
-    {
-
     }
 }
