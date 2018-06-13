@@ -31,7 +31,7 @@ class Auth
      *
      * @return mixed
      */
-    public function getPersistentCode($code, $accessToken)
+    public static function getPersistentCode($code, $accessToken)
     {
         $response = DingClient::getInstance()
             ->post('/get_persistent_code', ['access_token' => $accessToken], ['tmp_auth_code' => $code]);
@@ -48,7 +48,7 @@ class Auth
      *
      * @return mixed
      */
-    public function getSnsToken($code, $openId, $accessToken)
+    public static function getSnsToken($code, $openId, $accessToken)
     {
         $response = DingClient::getInstance()
             ->post('/get_sns_token',
@@ -64,7 +64,7 @@ class Auth
      *
      * @param string $snsToken
      */
-    public function getSnsInfo($snsToken)
+    public static function getSnsInfo($snsToken)
     {
         $response = DingClient::getInstance()
             ->post('/getuserinfo', ['sns_token' => $snsToken]);
