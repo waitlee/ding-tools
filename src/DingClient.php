@@ -2,8 +2,6 @@
 namespace WaitLee\DingTools;
 
 use GuzzleHttp\Client;
-use GuzzleHttp\Psr7\Request;
-use Waitlee\DingTools\Exceptions\ResponseException;
 
 /**
  * ding ding client

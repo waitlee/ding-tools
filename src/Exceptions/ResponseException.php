@@ -1,4 +1,4 @@
 <?php
-namespace Waitlee\DingTools\Exceptinos;
+namespace Waitlee\DingTools\Exceptions;
 
 class ResponseException extends \Exception{}

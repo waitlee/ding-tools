@@ -4,7 +4,7 @@
  * 钉钉 消息接口
  */
 
-namespace WaitLee\DingTools\Apis;
+namespace WaitLee\DingTools\Api;
 
 use WaitLee\DingTools\DingClient;
 

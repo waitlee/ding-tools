@@ -2,7 +2,7 @@
 /**
  * 钉钉 用户信息接口
  */
-namespace WaitLee\DingTools\Apis;
+namespace WaitLee\DingTools\Api;
 
 use WaitLee\DingTools\DingClient;
 

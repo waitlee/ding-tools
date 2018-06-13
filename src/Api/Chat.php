@@ -2,7 +2,7 @@
 /**
  * 钉钉 会话接口
  */
-namespace WaitLee\DingTools\Apis;
+namespace WaitLee\DingTools\Api;
 
 class Chat
 {

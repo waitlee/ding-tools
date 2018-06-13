@@ -1,12 +1,18 @@
 <?php
 /**
- * 钉钉 Auth 接口
+ * Created by SnsAuth.php
+ *
+ * PHP Version 7.0
+ *
+ * @author    waitlee <liduabc2012@gmail.com>
+ * @copyright 2018 LMT Team, all rights reserved
+ * @link      http://www.lemaitong.com
  */
-namespace WaitLee\DingTools\Apis;
+namespace WaitLee\DingTools\Api;
 
 use WaitLee\DingTools\DingClient;
 
-class Auth
+class SnsAuth
 {
     /**
      * get Access Token
@@ -18,7 +24,7 @@ class Auth
      */
     public static function getAccessToken($corpId, $corpSecret)
     {
-        $response = DingClient::getInstance()->get('/gettoken', ['corpid' => $corpId, 'corpsecret' => $corpSecret]);
+        $response = DingClient::getInstance()->get('sns/gettoken', ['corpid' => $corpId, 'corpsecret' => $corpSecret]);
 
         return $response->getBody()->getContents();
     }
@@ -33,8 +39,7 @@ class Auth
      */
     public static function getPersistentCode($code, $accessToken)
     {
-        $response = DingClient::getInstance()
-            ->post('/get_persistent_code', ['access_token' => $accessToken], ['tmp_auth_code' => $code]);
+        $response = DingClient::getInstance()->post('sns/get_persistent_code', ['access_token' => $accessToken], ['tmp_auth_code' => $code]);
 
         return $response->getBody()->getContents();
     }
@@ -50,11 +55,7 @@ class Auth
      */
     public static function getSnsToken($code, $openId, $accessToken)
     {
-        $response = DingClient::getInstance()
-            ->post('/get_sns_token',
-                ['access_token' => $accessToken],
-                ['openid' => $openId, 'persistent_code' => $code]
-            );
+        $response = DingClient::getInstance()->post('sns/get_sns_token', ['access_token' => $accessToken], ['openid' => $openId, 'persistent_code' => $code]);
 
         return $response->getBody()->getContents();
     }
@@ -66,8 +67,7 @@ class Auth
      */
     public static function getSnsInfo($snsToken)
     {
-        $response = DingClient::getInstance()
-            ->post('/getuserinfo', ['sns_token' => $snsToken]);
+        $response = DingClient::getInstance()->post('sns/getuserinfo', ['sns_token' => $snsToken]);
 
         return $response->getBody()->getContents();
     }
